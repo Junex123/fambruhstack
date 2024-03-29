@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-10">
+        <a routerLink="/productform" class="btn btn-primary mb-3">Add Product</a>
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Discounted Price</th>
+              <th>Is Available</th>
+              <th>Brand</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ product.name }}</td>
+              <td>{{ product.price }}</td>
+              <td>{{ product.discountedPrice }}</td>
+              <td>{{ product.available }}</td>
+              <td>{{ product.brand }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="deleteProduct(product.pid)">Delete</button>
+                <button class="btn btn-primary" (click)="updateProduct(product.pid)">Update</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-2">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Number of Products</h5>
+            <p class="card-text">{{ products.length }}</p>
+          </div>
+        </div>
+        <!-- You can add more card sections for additional statistics if needed -->
+      </div>
+    </div>
+  </div>
+  
